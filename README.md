@@ -17,6 +17,7 @@ The key should reside in a file named `credentials.py` by adding the following l
 ```jsx
 os.environ["OPENAI_API_KEY"] = 'your-key'
 ``` 
+Text generation:
 ```jsx
 python solo_main.py \
     --embed_model openai \
@@ -49,3 +50,6 @@ python solo_main.py \
 
 1. Alter the documents in ‘/source’ directory
 2. Execute the command
+
+### Resource Allocation
+//TODO
