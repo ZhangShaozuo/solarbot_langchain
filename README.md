@@ -53,3 +53,7 @@ python solo_main.py \
 
 ### Resource Allocation
 //TODO
+
+### Outstanding Items
+>results, CMS_preprocessed.xlsx, CMS.xlsm, data_postprocess.py and preprocess_query are designed for evaluating CMS dataset,
+for actually chatbot interface, the abovementioned files are not required.
