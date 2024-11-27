@@ -1,0 +1,81 @@
+INFO:__main__:Processing CMS_generated_openai_gradient.xlsx
+INFO:absl:Using default tokenizer.
+INFO:__main__:rouge1: 0.2599687818203259
+INFO:__main__:rouge2: 0.05035327019250821
+INFO:__main__:rougeL: 0.15346110766313553
+INFO:__main__:LlaMa Rating: 57.91954022988506
+INFO:__main__:P: 0.8405175805091858
+INFO:__main__:R: 0.8470081090927124
+INFO:__main__:F1: 0.8435382843017578
+INFO:__main__:Processing CMS_generated_openai_standard_deviation_fs.xlsx
+INFO:absl:Using default tokenizer.
+INFO:__main__:rouge1: 0.25451119593229565
+INFO:__main__:rouge2: 0.05275755595197574
+INFO:__main__:rougeL: 0.16050991855807412
+INFO:__main__:LlaMa Rating: 57.672413793103445
+INFO:__main__:P: 0.8615952134132385
+INFO:__main__:R: 0.8443496823310852
+INFO:__main__:F1: 0.8526768088340759
+INFO:__main__:Processing CMS_generated_openai_1024_128.xlsx
+INFO:absl:Using default tokenizer.
+INFO:__main__:rouge1: 0.2525084066093532
+INFO:__main__:rouge2: 0.053004735513663234
+INFO:__main__:rougeL: 0.16364268902495804
+INFO:__main__:LlaMa Rating: 57.36206896551724
+INFO:__main__:P: 0.8622324466705322
+INFO:__main__:R: 0.8448977470397949
+INFO:__main__:F1: 0.8532711267471313
+INFO:__main__:Processing CMS_generated_openai_512_64.xlsx
+INFO:absl:Using default tokenizer.
+INFO:__main__:rouge1: 0.24954383678683273
+INFO:__main__:rouge2: 0.053388201257539424
+INFO:__main__:rougeL: 0.16155402337024122
+INFO:__main__:LlaMa Rating: 56.310344827586206
+INFO:__main__:P: 0.8628069758415222
+INFO:__main__:R: 0.8438091278076172
+INFO:__main__:F1: 0.853018045425415
+INFO:__main__:Processing CMS_generated_openai_interquartile_fs.xlsx
+INFO:absl:Using default tokenizer.
+INFO:__main__:rouge1: 0.12216084609480587
+INFO:__main__:rouge2: 0.02674028950454512
+INFO:__main__:rougeL: 0.0658100658687359
+INFO:__main__:LlaMa Rating: 60.61494252873563
+INFO:__main__:P: 0.7254717350006104
+INFO:__main__:R: 0.8410288691520691
+INFO:__main__:F1: 0.7785294651985168
+INFO:__main__:Processing CMS_generated_openai_gradient_fs.xlsx
+INFO:absl:Using default tokenizer.
+INFO:__main__:rouge1: 0.13465638834993543
+INFO:__main__:rouge2: 0.02936088818187848
+INFO:__main__:rougeL: 0.07292418247833883
+INFO:__main__:LlaMa Rating: 61.31609195402299
+INFO:__main__:P: 0.7279046773910522
+INFO:__main__:R: 0.8419055342674255
+INFO:__main__:F1: 0.7803131341934204
+INFO:__main__:Processing CMS_generated_openai_standard_deviation.xlsx
+INFO:absl:Using default tokenizer.
+INFO:__main__:rouge1: 0.2570443177152026
+INFO:__main__:rouge2: 0.05093943192291358
+INFO:__main__:rougeL: 0.15195356130915816
+INFO:__main__:LlaMa Rating: 57.275862068965516
+INFO:__main__:P: 0.839521050453186
+INFO:__main__:R: 0.8458754420280457
+INFO:__main__:F1: 0.8424665331840515
+INFO:__main__:Processing CMS_generated_openai_250_50.xlsx
+INFO:absl:Using default tokenizer.
+INFO:__main__:rouge1: 0.24482249837723288
+INFO:__main__:rouge2: 0.04953618853796194
+INFO:__main__:rougeL: 0.1578657489837875
+INFO:__main__:LlaMa Rating: 56.97126436781609
+INFO:__main__:P: 0.8630086779594421
+INFO:__main__:R: 0.8429083228111267
+INFO:__main__:F1: 0.8526315093040466
+INFO:__main__:Processing CMS_generated_openai_interquartile.xlsx
+INFO:absl:Using default tokenizer.
+INFO:__main__:rouge1: 0.26018124948951515
+INFO:__main__:rouge2: 0.05128908490448025
+INFO:__main__:rougeL: 0.15267703862559023
+INFO:__main__:LlaMa Rating: 59.39655172413793
+INFO:__main__:P: 0.8421272039413452
+INFO:__main__:R: 0.8463268280029297
+INFO:__main__:F1: 0.8439894318580627

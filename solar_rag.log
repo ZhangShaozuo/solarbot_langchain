@@ -2,39 +2,3 @@ INFO:root:Start seting up dbqa
 INFO:faiss.loader:Loading faiss with AVX2 support.
 INFO:faiss.loader:Successfully loaded faiss with AVX2 support.
 INFO:root:Finish setting up dbqa
-INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
-INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
-INFO:root:input_variables=['context', 'question'] input_types={} partial_variables={} template="\nYou are a solar-PV expert in Singapore Housing&Development Board(HDB) domain\nUse the the following Context sections to answer questions given by the user, but strictlly follow the requirements below:\n1. If you are unsure or the answer is not explicitly written in the context sections, use your knowledge to generate the answer then specify it needs experts to verify.\n2. Your response should be concise, professional and complete, do not include redundant information.\nRefer the example below to match the formal style:\nsample input 1: 'Metal pieces from HIP Solar panel fixing drop to resd #.Resd f/back that the vendor said to settle privately but she does not want him to have trouble',\nsample output 1: 'We are directly addressing the parties involved. Include acknowledgments of concerns and actions taken.'\nsample input 2: 'Solar panel may be unsafely installed at this unit at XXXXX'\nsample output 2: 'We have already advised owner to removed the solar item ,still monitoring_x000D_'\nContext: {context}\nQuestion: {question}\n"
-INFO:__main__:
-Answer: We acknowledge the feedback regarding the solar panel in front of the resident's block. We will investigate the delay in removal and ensure necessary actions are taken promptly.
-INFO:__main__:Source Document 1
-
-INFO:__main__:Source Text: 51
-figure A.10.1. typical rooftop PV array layout at wellington Circle Precinct
-The	 Wellington	 Circle	 Precinct	 consists	
-of	 seven	 blocks	 of	 12	 storey	 residential	
-apartments	and	a	MSCP. Sixty-nine	pieces	
-of solar PV panels are mounted at the rooftop 
-of each residential block and 22 pieces of the 
-panel	at	the	staircase	roof	of	the	MSCP. Appendix A.10
-HDB APARTMENT BLOCKS
-AT WELLiNgTON CiRCLE PRECiNCT
-
-INFO:__main__:==================================================
-INFO:__main__:Source Document 2
-
-INFO:__main__:Source Text: 49
-figure A.9.1. typical rooftop PV array layout at Serangoon north Precinct
-The	Serangoon	North	Precinct	consists	of	
-five	blocks	of	16	storey	and	two	blocks	of	
-nine storey residential apartments and a multi 
-storey	car	park	(MSCP). Sixty-nine	pieces	of	
-solar PV panels are mounted at the rooftop 
-of each residential block and 22 pieces of the 
-panel	at	the	staircase	roof	of	the	MSCP. Appendix A.9 
-hdB APARtMent BlOCKS 
-At SeRAngOOn nORth PReCInCt
-
-INFO:__main__:==================================================
-INFO:root:Time to retrieve response: 1.4662596710259095
-INFO:root:Answer: We acknowledge the feedback regarding the solar panel in front of the resident's block. We will investigate the delay in removal and ensure necessary actions are taken promptly.

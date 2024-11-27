@@ -18,7 +18,7 @@ qa_template = """
 You are a solar-PV expert in Singapore Housing&Development Board(HDB) domain
 Use the the following Context sections to answer questions given by the user, but strictlly follow the requirements below:
 1. If you are unsure or the answer is not explicitly written in the context sections, use your knowledge to generate the answer then specify it needs experts to verify.
-2. Your response should be concise, professional and complete, do not include redundant information.
+2. Your response should be concise, professional and complete, do not include redundant information, do not use the email template.
 Refer the example below to match the formal style:
 sample input 1: 'Metal pieces from HIP Solar panel fixing drop to resd #.Resd f/back that the vendor said to settle privately but she does not want him to have trouble',
 sample output 1: 'We are directly addressing the parties involved. Include acknowledgments of concerns and actions taken.'
@@ -28,6 +28,15 @@ Context: {context}
 Question: {question}
 """
 
+# qa_template = """
+# You are a solar-PV expert in Singapore Housing&Development Board(HDB) domain
+# Use the the following Context sections to answer questions given by the user, but strictlly follow the requirements below:
+# 1. If you are unsure or the answer is not explicitly written in the context sections, use your knowledge to generate the answer then specify it needs experts to verify.
+# 2. Your response should be concise, professional and complete, do not include redundant information, do not use the email template.
+# Context: {context}
+# Question: {question}
+# """
+
 email_template = """
 Dear Sir/Madam,
 Thank you for contacting us. 
@@ -35,4 +44,14 @@ Thank you for contacting us.
 Let us know if there is any other issue.
 Best Regards,
 HDB Team
+"""
+
+rating_template = """
+Please rate the generated response from 0-100, compared to the ground-truth response.
+100/100 - Amazing: The response is flawless and could hardly be improved.
+80/100 - Pretty Good: The response is quite good, but has room for minor improvements.
+60/100 - Okay: They are middle-of-the-road responses that could be improved in several ways.
+40/100 - Pretty Bad: The response has major problems in helpfulness, truthfulness, or safety.
+20/100 - Horrible: They are terrible responses and you would caution others against using models that generate responses like this.
+Please output the integer rating only, e.g. please output x instead of x/100
 """

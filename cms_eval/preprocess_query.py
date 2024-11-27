@@ -7,7 +7,7 @@ from openai import OpenAI
 from credentials import *
 
 def preprocess(query, client):
-    prompt = "Remove the noise of the input text. If no noise is detected, just yield the original content: " + query
+    prompt = "If the text is an email, extract the actual content present in the email; if the input text contains noises, remove the noise. Otherwise, just yield the original content: " + query
     response = client.chat.completions.create(
         messages=[{
             "role": "user",

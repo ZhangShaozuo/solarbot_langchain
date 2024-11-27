@@ -24,7 +24,7 @@ python solo_main.py \
     --generation_model openai \
     --splitter semantic \
     --breakpoint_threshold_type standard_deviation \
-    --user_input "Resident has feedback that the solar panel in front of his block has been there for a long time. Resident shared that TC informed him that it will be removed in November 2020, but the resident mentioned that it is still there."
+    --user_input "Resident has feedback that the solar panel in front of his block has been there for a long time. Resident shared that TC informed him that it will be removed in November 2020, but the resident mentioned that it is still there." \
     --style email
 ```
 
@@ -42,7 +42,7 @@ The command to include the  expert’s optional input is
 
 ```jsx
 python solo_main.py \
-    --user_input "Resident has feedback that the solar panel in front of his block has been there for a long time. Resident shared that TC informed him that it will be removed in November 2020, but the resident mentioned that it is still there."
+    --user_input "Resident has feedback that the solar panel in front of his block has been there for a long time. Resident shared that TC informed him that it will be removed in November 2020, but the resident mentioned that it is still there." \
     --expert_input "Any text"
 ```
 

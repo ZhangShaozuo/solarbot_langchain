@@ -1,5 +1,0 @@
-INFO:__main__:Processing CMS_generated_w_length_unconstraint.xlsx
-INFO:absl:Using default tokenizer.
-INFO:__main__:rouge1: 0.25208552459337014
-INFO:__main__:rouge2: 0.05461413040146046
-INFO:__main__:rougeL: 0.15391719258695255

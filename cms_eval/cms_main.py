@@ -1,11 +1,14 @@
 import io
 import re
+import os
+import sys
 import timeit
 import logging
 import argparse
 import msoffcrypto
 import pandas as pd
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from tqdm.auto import tqdm
 from utils import setup_dbqa
 from prompts import email_template
