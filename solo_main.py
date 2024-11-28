@@ -91,5 +91,5 @@ if __name__ == "__main__":
     parser.add_argument("--chunk_overlap", type=int, help="chunk overlap", default=50, required=False)
     parser.add_argument("--breakpoint_threshold_type", type=str, default="standard_deviation", required=False)
     args = parser.parse_args()
-    main(args)
-    # backend_warp(args)
+    # main(args)
+    backend_warp(args)
