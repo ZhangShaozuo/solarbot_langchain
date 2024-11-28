@@ -23,7 +23,7 @@ python solo_main.py \
     --embed_model openai \
     --generation_model openai \
     --splitter semantic \
-    --breakpoint_threshold_type standard_deviation \
+    --breakpoint_threshold_type gradient \
     --user_input "Resident has feedback that the solar panel in front of his block has been there for a long time. Resident shared that TC informed him that it will be removed in November 2020, but the resident mentioned that it is still there." \
     --style email
 ```
@@ -49,11 +49,17 @@ python solo_main.py \
 ### Database Build
 
 1. Alter the documents in ‘/source’ directory
-2. Execute the command
+2. Execute the examplary command
+
+```jsx
+python db_build.py --embed_model openai --splitter semantic --breakpoint_threshold_type gradient
+```
 
 ### Resource Allocation
-//TODO
+1. Space requirement: 74 Mb (without LLM), 6.0 Gb (with Llama-3.2-3B)
+2. chatGPT fee: 0.006 USD per token processed
 
-### Outstanding Items
->results, CMS_preprocessed.xlsx, CMS.xlsm, data_postprocess.py and preprocess_query are designed for evaluating CMS dataset,
-for actually chatbot interface, the abovementioned files are not required.
+### Non-Outstanding Items
+> The scripts of evaluting CMS dataset have been groupped into '/cms_eval' directory
+> llm.py stores the Huggingface pipeline
+They can be discarded for platform integration
