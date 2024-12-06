@@ -64,7 +64,7 @@ python db_build.py --embed_model openai --splitter semantic --breakpoint_thresho
 The backend is fully operated using FastAPI (in chat_api.py). The API can be accessed via the following command:
 
 ```
-curl -X POST "https://69b89e759ee6e7.lhr.life/query" -H "Content-Type: application/json" -d @curl_input.txt
+curl -X POST "https://uidshpdhkp.sutd.org/query" -H "Content-Type: application/json" -d @curl_input.txt
 ```
 Sample output
 ```json
