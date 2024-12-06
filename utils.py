@@ -39,7 +39,7 @@ def setup_dbqa(args):
     elif args.splitter == 'semantic':
         vectordb = FAISS.load_local(f'vectorstore/db_faiss_{args.breakpoint_threshold_type}', embeddings, allow_dangerous_deserialization=True)
     qa_prompt = set_qa_prompt()
-    if args.generation_model == 'meta-llama/Llama-2-13b-chat-hf':
+    if args.generation_model == 'meta-llama/Llama-3.2-3B-Instruct':
         from llm import llm
         dbqa = build_retrieval_qa(llm, qa_prompt, vectordb)
     elif args.generation_model == 'openai':

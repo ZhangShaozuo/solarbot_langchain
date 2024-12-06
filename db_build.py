@@ -62,12 +62,12 @@ python db_build.py --embed_model openai --chunk_size 250 --chunk_overlap 50 --em
 '''
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="db build")
-    parser.add_argument("--doc_path", type=str, help="doc_path", default="source/")
-    parser.add_argument("--embed_model", type=str, help="embed_model", default='BAAI/bge-large-en-v1.5')
+    parser.add_argument("--doc_path", type=str, help="The path that store all the documents", default="source/")
+    parser.add_argument("--embed_model", type=str, help="Model used to embed the document segments/chunks. Supported types: BAAI/bge-large-en-v1.5, openai", default='BAAI/bge-large-en-v1.5')
     parser.add_argument("--vector_store", type=str, help="vector_store", default='FAISS', required=False)
-    parser.add_argument("--splitter", type=str, help="splitter", default='recursive', required=True)
-    parser.add_argument("--chunk_size", type=int, help="chunk_size", default=250, required=False)
-    parser.add_argument("--chunk_overlap", type=int, help="chunk_overlap", default=50, required=False)
-    parser.add_argument("--breakpoint_threshold_type", type=str, default="standard_deviation", required=False)
+    parser.add_argument("--splitter", type=str, help="Text split method. Supported types: recursive, semantic", default='recursive', required=True)
+    parser.add_argument("--chunk_size", type=int, help="The max size of each chunk, applied for recursive splitter. Choices: 250, 512, 1024", default=250, required=False)
+    parser.add_argument("--chunk_overlap", type=int, help="The overlap between two consecutive chunks, applied for recursive splitter. Choices: 50, 64, 128", default=50, required=False)
+    parser.add_argument("--breakpoint_threshold_type", type=str, default="The attributes of SemanticChunker, indicating the ways of when to split the sentences. Choices: gradient, interquartile, standard_deviation", required=False)
     args = parser.parse_args()
     vector_build(args)

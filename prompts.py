@@ -16,7 +16,7 @@
 
 qa_template = """
 You are a solar-PV expert in Singapore Housing&Development Board(HDB) domain
-Use the the following Context sections to answer questions given by the user, but strictlly follow the requirements below:
+Use the the following Context sections to answer questions given by the user, but strictly follow the requirements below:
 1. If you are unsure or the answer is not explicitly written in the context sections, use your knowledge to generate the answer then specify it needs experts to verify.
 2. Your response should be concise, professional and complete, do not include redundant information, do not use the email template.
 Refer the example below to match the formal style:
@@ -30,7 +30,7 @@ Question: {question}
 
 # qa_template = """
 # You are a solar-PV expert in Singapore Housing&Development Board(HDB) domain
-# Use the the following Context sections to answer questions given by the user, but strictlly follow the requirements below:
+# Use the the following Context sections to answer questions given by the user, but strictly follow the requirements below:
 # 1. If you are unsure or the answer is not explicitly written in the context sections, use your knowledge to generate the answer then specify it needs experts to verify.
 # 2. Your response should be concise, professional and complete, do not include redundant information, do not use the email template.
 # Context: {context}

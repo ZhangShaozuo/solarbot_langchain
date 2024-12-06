@@ -27,36 +27,6 @@ def process_single(dbqa, input: str, expert_input: str, logger: logging.Logger):
         logger.info('='* 50)
     logging.info(f"Time to retrieve response: {end - start}")
     return response['result']
-
-def main(args):
-    logger = logging.getLogger(__name__)
-    logging.basicConfig(filename = 'solar_rag.log', level = logging.INFO, filemode='w')
-    logging.info("Start seting up dbqa")
-    dbqa = setup_dbqa(args)
-    logging.info("Finish setting up dbqa")
-    
-    ## This is for encrypted CMS file
-    # decrypted_workbook = io.BytesIO()
-    # with open('CMS_preprocessed.xlsx', 'rb') as file:
-    #     office_file = msoffcrypto.OfficeFile(file)
-    #     office_file.load_key(password='BF122266Sept')
-    #     office_file.decrypt(decrypted_workbook)
-    # df = pd.read_excel(decrypted_workbook)[['Case Content','Final Reply Content']]
-
-    df = pd.read_excel('CMS_preprocessed.xlsx')[['Case Content', 'Processed Content','Processed Reply']]
-    bar = tqdm(total=len(df))
-    results = []
-    for idx, row in df.iterrows():
-        bar.update(1)
-        result = process_single(dbqa, row['Processed Content'], args.expert_input, logger)
-        results.append(result)
-    bar.close()
-    df['Generated Reply'] = results
-    if args.splitter == 'recursive':
-        output_file = f'results/CMS_generated_{args.generation_model}_{args.chunk_size}_{args.chunk_overlap}.xlsx'
-    elif args.splitter == 'semantic':
-        output_file = f'results/CMS_generated_{args.generation_model}_{args.breakpoint_threshold_type}.xlsx'
-    df.to_excel(output_file)
         
 ### construct def main(args) for single input process
 def backend_warp(args):
@@ -71,25 +41,20 @@ def backend_warp(args):
         result = email_template.format(generated_reply=result)
     return result
 
-'''
-
-'''
-
 if __name__ == "__main__":
     # Create an ArgumentParser object
     parser = argparse.ArgumentParser(description="Langchain RAG - Solar PV Panel")
     ### input 
     parser.add_argument("--user_input", type=str, default="Hello, who are you?", required=False)
-    parser.add_argument("--expert_input", type=str, default="", required=False)
-    parser.add_argument("--style", type=str, help="e.g. email", default="email", required=False)
-    parser.add_argument("--vector_store", type=str, help="vector store options", default="FAISS") # not important
-    parser.add_argument("--splitter", type=str, help="text split method", default="semantic")
+    parser.add_argument("--expert_input", type=str, default="The expert can provide their experience and guides, their inputs will be the prioritised context", help='', required=False)
+    parser.add_argument("--style", type=str, help="The template to warp up the model response. Supported style: email", default="email", required=False)
+    parser.add_argument("--vector_store", type=str, help="The type of vector store(database) used. Supported type: FAISS", default="FAISS") # not important
+    parser.add_argument("--splitter", type=str, help="Text split method. Supported types: recursive, semantic", default="semantic")
     ### model
-    parser.add_argument("--embed_model", type=str, help="embeddings model", default='openai', required=False) # BAAI/bge-large-en-v1.5
-    parser.add_argument("--generation_model", type=str, help="model", default="openai", required=False) #or openai, meta-llama/Llama-2-13b-chat-hf
-    parser.add_argument("--chunk_size", type=int, help="chunk size", default=250, required=False)
-    parser.add_argument("--chunk_overlap", type=int, help="chunk overlap", default=50, required=False)
-    parser.add_argument("--breakpoint_threshold_type", type=str, default="gradient", required=False)
+    parser.add_argument("--embed_model", type=str, help="Model used to embed the document segments/chunks. Supported types: BAAI/bge-large-en-v1.5, openai", default='openai', required=False)
+    parser.add_argument("--generation_model", type=str, help="Model used to generate responses, supported models: openai, meta-llama/Llama-3.2-3B-Instruct", default="openai", required=False) 
+    parser.add_argument("--chunk_size", type=int, help="The max size of each chunk, applied for recursive splitter. Choices: 250, 512, 1024", default=250, required=False)
+    parser.add_argument("--chunk_overlap", type=int, help="The overlap between two consecutive chunks, applied for recursive splitter. Choices: 50, 64, 128", default=50, required=False)
+    parser.add_argument("--breakpoint_threshold_type", type=str, help="The attributes of SemanticChunker, indicating the ways of when to split the sentences. Choices: gradient, interquartile, standard_deviation", default="gradient", required=False)
     args = parser.parse_args()
-    # main(args)
     backend_warp(args)

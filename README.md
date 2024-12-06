@@ -58,6 +58,18 @@ python db_build.py --embed_model openai --splitter semantic --breakpoint_thresho
 ### Resource Allocation
 1. Space requirement: 74 Mb (without LLM), 6.0 Gb (with Llama-3.2-3B)
 2. chatGPT fee: 0.006 USD per token processed
+3. Open-Source LLM requires GPU with 16 Gb memory
+
+### Integration - API
+The backend is fully operated using FastAPI (in chat_api.py). The API can be accessed via the following command:
+
+```
+curl -X POST "https://69b89e759ee6e7.lhr.life/query" -H "Content-Type: application/json" -d @curl_input.txt
+```
+Sample output
+```json
+{"result":"\nDear Sir/Madam,\nThank you for contacting us. \nWe will investigate the situation and ensure the timely removal of the solar panel in front of the resident's block as per the communicated schedule. Thank you for bringing this to our attention.\nLet us know if there is any other issue.\nBest Regards,\nHDB Team\n"}
+```
 
 ### Non-Outstanding Items
 > The scripts of evaluting CMS dataset have been groupped into '/cms_eval' directory

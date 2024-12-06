@@ -79,9 +79,7 @@ def parse_texts(text):
     elif matchB:
         return matchB.group(1)
     else:
-        breakpoint()
-        print('Error: No match found')
-        return None
+        return text
 
 def eval():
     scorer = score
@@ -98,7 +96,7 @@ def eval():
             df = pd.read_excel(f'results/{file}', index_col=0)
             logger.info(f'Processing {file}')
             model_outputs = df['Generated Reply']
-            # model_outputs = model_outputs.apply(parse_texts)
+            model_outputs = model_outputs.apply(parse_texts)
             y = df['Processed Reply']
             rs = rouge_eval(model_outputs, y)
             rating = llm_eval(model_outputs, y, pipe=pipe)
@@ -112,5 +110,41 @@ def eval():
             logger.info(f'R: {R.mean()}')
             logger.info(f'F1: {F1.mean()}')
 
+# cs(0)
+def cs(idx):
+    df = pd.read_excel('results/CMS_generated_openai_gradient_fs.xlsx', index_col=0)
+    x_df = df[['Processed Content', 'Processed Reply']]
+    model_outputs = df['Generated Reply']
+    model_outputs = model_outputs.apply(parse_texts)
+    print('\nQuery: ----------------\n')
+    print(x_df.iloc[idx]['Processed Content'])
+    print('\nGround Truth: ----------------\n')
+    print(x_df.iloc[idx]['Processed Reply'])
+    print('\nModel Output: ----------------\n')
+    print(model_outputs.iloc[idx])
+
+def histo():
+    import matplotlib.pyplot as plt
+    import numpy as np
+    df = pd.read_excel('results/CMS_generated_openai_gradient_fs.xlsx', index_col=0)
+    x = df['Processed Content'].apply(len)
+    y = df['Processed Reply'].apply(len)
+    data_min = min(min(x), min(y))
+    data_max = max(max(x), max(y))
+    weights_x, weights_y = [1] * len(x), [-1] * len(y)
+    bin_width = 100
+    bins = range(data_min, data_max + bin_width, bin_width)
+    plt.hist(x, bins=bins, weights=weights_x, alpha=0.5, label='query', color='skyblue', edgecolor='black')
+    plt.hist(y, bins=bins, weights=weights_y, alpha=0.5, label='reply', color='red', edgecolor='black')
+    plt.axhline(0, color='black', linewidth=0.8, linestyle='--')
+    plt.title('Text Length Distribution')
+    plt.xlabel('Text Length')
+    plt.ylabel('Frequency')
+    plt.legend()
+    plt.savefig('data_stats.png', dpi=720)
+    breakpoint()
+
 if __name__ == "__main__":
-    eval()
+    # eval()
+    histo()
+    breakpoint()
