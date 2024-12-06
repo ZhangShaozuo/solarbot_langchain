@@ -70,6 +70,7 @@ Sample output
 ```json
 {"result":"\nDear Sir/Madam,\nThank you for contacting us. \nWe will investigate the situation and ensure the timely removal of the solar panel in front of the resident's block as per the communicated schedule. Thank you for bringing this to our attention.\nLet us know if there is any other issue.\nBest Regards,\nHDB Team\n"}
 ```
+A demonstration of the operating API can be found in 
 
 ### Non-Outstanding Items
 > The scripts of evaluting CMS dataset have been groupped into '/cms_eval' directory
