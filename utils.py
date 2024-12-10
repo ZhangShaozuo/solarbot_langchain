@@ -38,6 +38,10 @@ def setup_dbqa(args):
         vectordb = FAISS.load_local(f'vectorstore/db_faiss_{args.chunk_size}_{args.chunk_overlap}', embeddings, allow_dangerous_deserialization=True)
     elif args.splitter == 'semantic':
         vectordb = FAISS.load_local(f'vectorstore/db_faiss_{args.breakpoint_threshold_type}', embeddings, allow_dangerous_deserialization=True)
+    elif args.splitter == 'manual':
+        vectordb = FAISS.load_local(f'vectorstore/db_faiss_{args.splitter}', embeddings, allow_dangerous_deserialization=True)
+    else:
+        raise NotImplementedError
     qa_prompt = set_qa_prompt()
     if args.generation_model == 'meta-llama/Llama-3.2-3B-Instruct':
         from llm import llm

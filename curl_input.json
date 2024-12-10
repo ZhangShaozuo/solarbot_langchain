@@ -1,9 +1,10 @@
 {
-    "user_input": "Resident has feedback that the solar panel in front of his block has been there for a long time. Resident shared that TC informed him that it will be removed in November 2020, but the resident mentioned that it is still there.",
+    "user_input": "How long is the lifespan of solar panels?",
     "expert_input": "",
     "style": "email",
+    "return_docs": 1,
     "vector_store": "FAISS",
-    "splitter": "semantic",
+    "splitter": "manual",
     "embed_model": "openai",
     "generation_model": "openai",
     "chunk_size": 250,
